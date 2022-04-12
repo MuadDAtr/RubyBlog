@@ -7,4 +7,16 @@
   <%= link_to "Back to posts", posts_path %>
 
   <%= button_to "Destroy this post", @post, method: :delete %>
+
+  <p>
+  <% @comments.each do |comment| %>
+    <div class="card w-75">
+    <div class="card-body">
+      <h5 class="card-title"><%= comment.author %></h5>
+      <p class="card-text"> <%= comment.body %> </p>
+    </div>
+    </div>
+  <% end %>
+  </p>
+  <%= render "comments/form", comment: @comment %>
 </div>
