@@ -18,6 +18,7 @@
     </div>
   <% end %>
   </p>
+
   <% if user_signed_in? %>
     <%= render "comments/form", comment: @comment %>
   <% else %>
