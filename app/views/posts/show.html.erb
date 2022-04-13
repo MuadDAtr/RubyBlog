@@ -18,5 +18,11 @@
     </div>
   <% end %>
   </p>
-  <%= render "comments/form", comment: @comment %>
+  <% if user_signed_in? %>
+    <%= render "comments/form", comment: @comment %>
+  <% else %>
+    <%= link_to 'You need to log in', user_session_path %>
+  <% end %>
 </div>
+
+
