@@ -42,7 +42,20 @@
   </div>
 </nav>
 
-  
+<% if current_user %>
+    <p> Hello <%= current_user.email %> </p>
+    <p>
+        You have authenitcated with your account!
+    </p>
+    <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
+
+<% else %>
+    <p> You are not signed in </p>
+    <%= link_to "Sign Up", new_user_registration_path %>
+    <br/>
+    <%= link_to "Log In", new_user_session_path %>
+<% end %>
+
     <div class = "container" >
     <%= yield %>
     </div>
