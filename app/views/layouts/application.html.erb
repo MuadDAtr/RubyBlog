@@ -24,7 +24,7 @@
         </li>
         <% if user_signed_in? %>
         <li class="nav-item">
-          <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-item" %>
+          <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
         </li>
         <% else %>
         <li class="nav-item">
@@ -42,22 +42,26 @@
   </div>
 </nav>
 
+<div class = "container">
 <% if current_user %>
-    <p> Hello <%= current_user.email %> </p>
+    <br>
+    <p> Hello <%= current_user.email %> !</p>
     <p>
         You have authenitcated with your account!
     </p>
-    <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
+    <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
 
 <% else %>
-    <p> You are not signed in </p>
-    <%= link_to "Sign Up", new_user_registration_path %>
-    <br/>
-    <%= link_to "Log In", new_user_session_path %>
-<% end %>
+    <br>
+    
+    <p>In order to create posts and leave comments: Sign in!</p>
 
+<% end %>
     <div class = "container" >
-    <%= yield %>
+      <%= yield %>
     </div>
-  </body>
+
+</div>
+ 
+</body>
 </html>

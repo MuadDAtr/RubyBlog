@@ -9,7 +9,8 @@
     <h5 class="card-title"> <%= post.user.try(:email) %> </h5>
     <p class="card-text">  <%= post.body %>  </p>
     
+    <% if user_signed_in? %>
     <%= link_to "Show this post", post, class: "btn btn-primary" unless @post %>
-
+    <% end %>
   </div>
 </div>
